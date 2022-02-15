@@ -1,0 +1,34 @@
+{
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    },
+    "clangd": {
+      "command": "clangd",
+      "filetypes": ["c", "c++"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "java",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript.tsx",
+    "json"
+  ],
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "python.formatting.provider": "black",
+  "python.pythonPath": "/usr/bin/python3",
+  "java.format.enabled": true,
+  "java.saveActions.organizeImports": true
+}
