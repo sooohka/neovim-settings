@@ -25,6 +25,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'BurntSushi/ripgrep'
+
 Plug 'rhysd/vim-clang-format'
 
 "norm
@@ -32,6 +33,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
 Plug '42Paris/42header'
 call plug#end()
+
+so ~/.config/nvim/telescope.vim
 
 
 "nmap
@@ -53,7 +56,7 @@ let g:NERDTreeIgnore =['^node_modules$']
 let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize=25
-""
+
 
 
 "coc config
@@ -83,6 +86,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 set tabstop=4 shiftwidth=4 expandtab
+
+"telescope
 
 "tagbar
 let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
@@ -134,7 +139,6 @@ nnoremap nt :NERDTreeToggle<CR>
 nmap <C-k> <plug>NERDCommenterToggle
 vmap <C-k> <plug>NERDCommenterToggle
 
-nnoremap <C-f> <cmd>Telescope find_files<cr>
 
 "buffer
 nnoremap <silent><S-h> :bp<CR> 
@@ -152,6 +156,14 @@ nmap <silent><leader>k :wincmd l<CR>
 nmap <silent><leader>l :wincmd l<CR>
 nmap <silent><leader>j :wincmd h<CR>
 nmap <silent><leader>h :wincmd h<CR>
+
+
+"telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "show description -> <leader><leader>
 "rename -> <leader>rn
