@@ -7,7 +7,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'mbbill/undotree'
 
 Plug 'preservim/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -16,10 +19,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'blueyed/vim-diminactive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'BurntSushi/ripgrep'
 Plug 'rhysd/vim-clang-format'
-
 
 "norm
 Plug 'vim-syntastic/syntastic'
@@ -27,21 +33,27 @@ Plug 'alexandregv/norminette-vim'
 Plug '42Paris/42header'
 call plug#end()
 
+
+"nmap
+let mapleader=" "
+
 "clang-format
 so ~/.config/nvim/clang-format.vim
 let g:clang_format#auto_format=0
 
 "norm
-so ~/.config/nvim/norm.vim
+"so ~/.config/nvim/norm.vim
 
 "ctrlp
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 "nerdcommenter
 so ~/.config/nvim/commenter.vim
 
 "nerdtree
 let g:NERDTreeIgnore =['^node_modules$']
+let g:netrw_browse_split=2
+let g:netrw_banner=0
+let g:netrw_winsize=25
+""
 
 
 "coc config
@@ -73,6 +85,7 @@ let g:indent_guides_guide_size = 1
 set tabstop=4 shiftwidth=4 expandtab
 
 "tagbar
+let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
 let g:tagbar_autofocus=1
 
 "vim-airline
@@ -85,32 +98,32 @@ endif
 
 " settings
 set relativenumber number
-set smarttab
-set incsearch
+
+set incsearch hlsearch ignorecase smartcase
+
+
 set hidden
 set noerrorbells
-"set nowrap
+set nowrap
 set noswapfile
 set encoding=utf-8 fileencodings=utf-8
+
 set cursorline
 set nobackup undodir=~/.config/nvim/undo undofile
-set scrolloff=8 mouse=a
+set scrolloff=8 mouse=n
 set signcolumn=yes
+
 set list
 set listchars=tab:>-
 set tabstop=4
 set noexpandtab
-
-
+set smarttab
 "set expandtab
 
-syntax enable
+"syntax enable
 colorscheme jellybeans
-"set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\ 
-"cursor
-"
-"nmap
-let mapleader=" "
+
+
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -118,16 +131,36 @@ inoremap <C-k> <Up>
 nnoremap <C-n>n :NERDTreeFocus<CR>
 nnoremap <C-t> :TagbarToggle<CR>
 nnoremap nt :NERDTreeToggle<CR>
-nnoremap <C-f> <cmd>Telescope find_files<cr>
-
-nnoremap <S-h> :bp<CR> 
-nnoremap <S-j> :bp<CR> 
-nnoremap <S-l> :bn<CR> 
-nnoremap <S-k> :bn<CR> 
-nnoremap <S-w> :bw<CR>
-nnoremap <S-q> <CR>
-nnoremap <C-h> :Stdheader<CR>
-
 nmap <C-k> <plug>NERDCommenterToggle
 vmap <C-k> <plug>NERDCommenterToggle
+
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+
+"buffer
+nnoremap <silent><S-h> :bp<CR> 
+nnoremap <silent><S-j> :bp<CR> 
+nnoremap <silent><S-l> :bn<CR> 
+nnoremap <silent><S-k> :bn<CR> 
+nnoremap <silent><S-w> :bw<CR>
+nnoremap <S-q> <CR>
+
+
+"window
+nmap <silent><leader>v :wincmd v<CR>
+nmap <silent><leader>w :wincmd c<CR>
+nmap <silent><leader>k :wincmd l<CR>
+nmap <silent><leader>l :wincmd l<CR>
+nmap <silent><leader>j :wincmd h<CR>
+nmap <silent><leader>h :wincmd h<CR>
+
+"show description -> <leader><leader>
+"rename -> <leader>rn
+"multicursor -> <C-n>
+
+
+
+
+
+" my keymap
 vnoremap c :w !pbcopy<CR> <CR>
+nnoremap <silent><esc> :noh <CR> 

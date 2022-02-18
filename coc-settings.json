@@ -6,10 +6,6 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     },
-    "clangd": {
-      "command": "clangd",
-      "filetypes": ["c", "c++"]
-    },
     "dockerfile": {
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
