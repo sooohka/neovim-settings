@@ -8,10 +8,8 @@ require('telescope').setup{
     -- config_key = value,
     mappings = {
       i = {
-      			["<C-k>"] = actions.move_selection_next,
-      			["<C-l>"] = actions.move_selection_next,
-      			["<C-j>"] = actions.move_selection_previous,
-      			["<C-h>"] = actions.move_selection_previous,
+      			["<C-j>"] = actions.move_selection_next,
+      			["<C-k>"] = actions.move_selection_previous,
       }
     },
 	file_ignore_patterns = {"%.h","^node_modules/"}

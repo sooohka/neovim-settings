@@ -1,4 +1,3 @@
-"plugin
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
@@ -19,19 +18,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'blueyed/vim-diminactive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'BurntSushi/ripgrep'
 
-Plug 'rhysd/vim-clang-format'
-
 "norm
 Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
 Plug '42Paris/42header'
+Plug 'cacharle/c_formatter_42.vim'
 call plug#end()
 
 so ~/.config/nvim/telescope.vim
@@ -40,12 +37,13 @@ so ~/.config/nvim/telescope.vim
 "nmap
 let mapleader=" "
 
-"clang-format
-so ~/.config/nvim/clang-format.vim
-let g:clang_format#auto_format=0
+
+"Clangformat
+let g:c_formatter_42_format_on_save=1
+
 
 "norm
-"so ~/.config/nvim/norm.vim
+so ~/.config/nvim/norm.vim
 
 "ctrlp
 "nerdcommenter
@@ -159,19 +157,15 @@ nmap <silent><leader>h :wincmd h<CR>
 
 
 "telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap ff <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap fg <cmd>Telescope live_grep<cr>
+nnoremap fb <cmd>Telescope buffers<cr>
+nnoremap fh <cmd>Telescope help_tags<cr>
 
 "show description -> <leader><leader>
 "rename -> <leader>rn
 "multicursor -> <C-n>
-
-
-
-
 
 " my keymap
 vnoremap c :w !pbcopy<CR> <CR>
