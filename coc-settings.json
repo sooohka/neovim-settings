@@ -22,6 +22,8 @@
     "typescript.tsx",
     "json"
   ],
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+  "eslint.autoFixOnSave": true,
   "clangd.path": "/usr/bin/clangd",
   "java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home",
   "python.formatting.provider": "black",

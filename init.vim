@@ -83,7 +83,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
-set tabstop=4 shiftwidth=4 expandtab
+
 
 "telescope
 
@@ -100,10 +100,17 @@ syntax on
 endif
 
 " settings
-set relativenumber number
+
+set tabstop=2 shiftwidth=2 expandtab 
+
+augroup filetype_c
+    autocmd!
+    :autocmd Filetype c setlocal tabstop=4 shiftwidth=4 noexpandtab list listchars=tab:>-
+augroup end
+
+set number relativenumber
 
 set incsearch hlsearch ignorecase smartcase
-
 
 set hidden
 set noerrorbells
@@ -113,20 +120,12 @@ set encoding=utf-8 fileencodings=utf-8
 
 set cursorline
 set nobackup undodir=~/.config/nvim/undo undofile
-set scrolloff=8 mouse=n
+set scrolloff=8
+set mouse=v
 set signcolumn=yes
-
-set list
-set listchars=tab:>-
-set tabstop=4
-set noexpandtab
-set smarttab
-"set expandtab
 
 "syntax enable
 colorscheme jellybeans
-
-
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
