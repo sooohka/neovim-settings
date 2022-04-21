@@ -68,6 +68,7 @@ let g:coc_global_extensions =[
     \'coc-pyright',
     \'coc-clangd',
     \'coc-java',
+    \'coc-snippets',
     \]
  
 so ~/.config/nvim/coc.vim
@@ -130,12 +131,12 @@ colorscheme jellybeans
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
+"nerdtree
 nnoremap <C-n>n :NERDTreeFocus<CR>
 nnoremap <C-t> :TagbarToggle<CR>
 nnoremap nt :NERDTreeToggle<CR>
 nmap <C-k> <plug>NERDCommenterToggle
 vmap <C-k> <plug>NERDCommenterToggle
-
 
 "buffer
 nnoremap <silent><S-h> :bp<CR> 
@@ -145,7 +146,6 @@ nnoremap <silent><S-k> :bn<CR>
 nnoremap <silent><S-w> :bw<CR>
 nnoremap <S-q> <CR>
 
-
 "window
 nmap <silent><leader>v :wincmd v<CR>
 nmap <silent><leader>w :wincmd c<CR>
@@ -153,7 +153,6 @@ nmap <silent><leader>k :wincmd l<CR>
 nmap <silent><leader>l :wincmd l<CR>
 nmap <silent><leader>j :wincmd h<CR>
 nmap <silent><leader>h :wincmd h<CR>
-
 
 "telescope
 nnoremap ff <cmd>Telescope find_files<cr>
@@ -165,6 +164,7 @@ nnoremap fh <cmd>Telescope help_tags<cr>
 "show description -> <leader><leader>
 "rename -> <leader>rn
 "multicursor -> <C-n>
+nnoremap <silent><leader>s :CocCommand snippets.editSnippets<CR>
 
 " my keymap
 vnoremap c :w !pbcopy<CR> <CR>
